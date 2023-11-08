@@ -66,6 +66,17 @@ body{
     color: #fff;
 }
 
+@media screen and (max-width:450px) {
+    #form-container{
+        width: 95%;
+
+    }
+
+    #welcome-message h1{
+        font-size: 24px;
+    }  
+}
+
 
 /* -------ROOM STYLLING ------- */
 #video-streams{
