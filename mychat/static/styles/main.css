@@ -110,6 +110,10 @@ body{
     width: 100%;
 }
 
+.video-player > * {
+    border-radius: 5px;
+}
+
 .username-wrapper{
     position: absolute;
     top: 10px;
@@ -121,6 +125,13 @@ body{
     border-radius: 5px;
     color: #fff;
     font-size: 14px;
+}
+
+@media screen and (max-width:1650px) {
+    .video-container{
+        flex-basis: 300px;
+        min-height: 200px;
+    }
 }
 
 
