@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from agora_token_builder import RtcTokenBuilder
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import RoomMember
 
 from decouple import config
 import random
 import time
+import json
 
 
 def get_token(request):
@@ -28,3 +32,16 @@ def lobby(request):
 
 def room(request):
     return render(request, 'base/room.html')
+
+@csrf_exempt
+def create_member(request):
+    data = json.loads(request.body)
+
+    member, created = RoomMember.objects.get_or_create(
+        name=data['name'],
+        uid=data['UID'],
+        room_name=data['room_name']
+    )
+
+    return JsonResponse({'name':data['name']}, safe=False)
+
